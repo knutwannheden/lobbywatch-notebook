@@ -39,9 +39,12 @@ where 1 = 1
   and (o.rechtsform not in
        ('Parlamentarische Gruppe', 'Parlamentarische Freundschaftsgruppe',
         'Ausserparlamentarische Kommission')
+           or i.funktion_im_gremium = 'praesident'
     )
-  and i.art != 'mitglied'
-  and ig.name not in ('Parteien')
+#   and i.art != 'mitglied'
+#   and ig.name not in ('Parteien')
+and ij.verguetung is not null
 order by 1, 2, 3, 5, 8
 ;
+
 
